@@ -1,10 +1,10 @@
-import React from 'react'
+import GenerateURL from './GenerateURL'
 
 export default function App() {
   return (
-    <div>
-      Hello World!
-    </div>
+    <>
+      <GenerateURL/>
+    </>
   )
 }
 

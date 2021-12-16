@@ -21,6 +21,8 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -56,5 +58,8 @@
   "bugs": {
     "url": "https://github.com/mhdarb/URLTracking/issues"
   },
-  "homepage": "https://github.com/mhdarb/URLTracking#readme"
+  "homepage": "http://mhdarb.github.io/URLTracking",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
 }

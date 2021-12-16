@@ -6,11 +6,14 @@
     align-items: center;
     letter-spacing: 0.01rem;
     justify-content: space-around;
-    background-color: aliceblue;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/6476591/pexels-photo-6476591.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    // background-size:cover;
+    background-size: contain;
 
     h2{
-        font-size: 40px;
-        font-weight: 500;
+        font-size: 45px;
+        font-weight: 600;
+        color: white;
     }
 
     .hashedUrlContainer{ 
@@ -22,7 +25,8 @@
             padding: 10px 40px;
             height:50px;
             border-radius: 5px;
-            border:1px solid red
+            border:1px solid red;
+            font-size: 15px;
         }
 
         .copyIcon{
@@ -34,7 +38,7 @@
     }
 
     form{
-        background-color: lightgoldenrodyellow;
+        background-color: transparent;
         width: 50%;
         padding: 30px;
         display: flex;
@@ -42,6 +46,8 @@
         justify-content: center;
         flex-direction: column;
         border-radius: 8px;
+        box-sizing: border-box;
+        background-color: rgba(0,0,0,.55);
 
         .formInput{
             margin-bottom: 20px;
@@ -51,15 +57,22 @@
             label{
                 margin-bottom: 10px;
                 font-size: 16px;
+                color: white;
             }
             input{
                 padding:15px;
+                height: 25px;
                 width: 400px;
+                font-size: 15px;
                 border-radius: 3px;
-                border:1px solid #8c8c8c;
+                border:2px solid #e87c03;
+                outline: none;
             }
         }
         button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border:none;
             outline: none;
             font-weight: 500;
@@ -70,6 +83,10 @@
             padding:15px;
             width: 430px;
             cursor: pointer;
+
+            &:hover{
+                opacity: 0.9;
+            }
         }
     }
 }

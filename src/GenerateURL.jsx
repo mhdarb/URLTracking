@@ -2,12 +2,16 @@ import './generateURL.scss'
 import { useState } from 'react'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { SendOutlined } from '@mui/icons-material';
 
 export default function GenerateURL() {
     const [copied, setCopied] = useState(false);
     const handleSubmit = (e) =>{
         e.preventDefault();
-        let url=`https://${websiteUrl}?`;
+        let url=''
+        if(websiteUrl.length>0){
+            url=`https://${websiteUrl}/?`;
+        }
         if(source.length>0){
             url+="utm_source="+source;
         } 
@@ -15,20 +19,16 @@ export default function GenerateURL() {
             url+="&"+"utm_medium="+medium;
         } 
         if(campaign.length>0){
+            setCampaign(campaign.split(' ').join('-'))
             url+="&"+"utm_campaign="+campaign;
         } 
         if(term.length>0){
             setTerm(term.split(' ').join('-'))
-            url+="&"+"utm_campaign="+term;
+            url+="&"+"utm_term="+term;
         } 
         setHashedUrl(url);
-        console.log(url);
     }
 
-    const handleCopy = (e) =>{
-        e.target.select()
-        document.execCommand("copy")
-    }
     const [websiteUrl, setWebsiteUrl] = useState("")
     const [source, setSource] = useState("")
     const [medium, setMedium] = useState("")
@@ -47,15 +47,17 @@ export default function GenerateURL() {
                         setCopied(false);
                     }}
                 />
+                {hashedUrl &&
                 <CopyToClipboard text={hashedUrl} onCopy={() => setCopied(true)}>
-                    <ContentCopyIcon className='copyIcon' onClick={handleCopy}/>
+                    <ContentCopyIcon className='copyIcon'/>
                 </CopyToClipboard>
+                }
             </div>
-            {copied ? <span style={{ color: "green", margin:"0px"}}>Copied Url</span> : null}
-            <form action="">
+            {copied ? <span style={{ color: "yellow", margin:"0px"}}>Copied Url</span> : null}
+            <form action="" onSubmit={handleSubmit}>
                 <div className="formInput">
-                    <label>Website Name:</label>
-                    <input type="text" required="true" placeholder='website url' onChange={(e)=>setWebsiteUrl(e.target.value)}/>
+                    <label>WEBSITE URL </label>
+                    <input type="text" required="true" placeholder='ex. google.com' onChange={(e)=>setWebsiteUrl(e.target.value)}/>
                 </div>
                 <div className="formInput">
                     <label>UTM_SOURCE</label>
@@ -73,8 +75,7 @@ export default function GenerateURL() {
                     <label>UTM_TERM</label>
                     <input type="text" placeholder='ex: "best marketing software"' onChange={(e)=>setTerm(e.target.value)}/>
                 </div>
-
-                <button onClick={handleSubmit}>GENERATE URL</button>
+                <button >GENERATE URL <SendOutlined style={{marginLeft:"5px"}}/></button>
             </form>           
         </div>
     )

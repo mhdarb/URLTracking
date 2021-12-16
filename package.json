@@ -12,6 +12,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "add": "^2.0.6",
+    "crypto-js": "^4.1.1",
     "node-sass": "^7.0.0",
     "react": "^17.0.2",
     "react-copy-to-clipboard": "^5.0.4",
@@ -42,5 +43,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhdarb/URLTracking.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhdarb/URLTracking/issues"
+  },
+  "homepage": "https://github.com/mhdarb/URLTracking#readme"
 }
